@@ -5,6 +5,7 @@ import { LanguageProvider } from "./lib/i18n";
 import Home from "./pages/Home";
 import Landing360 from "./pages/360";
 import LandingOOH from "./pages/ooh";
+import LandingDKJournal from "./pages/dkjournal";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
@@ -15,6 +16,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           <Route path="/" element={<Home />} />
           <Route path="/360" element={<Landing360 />} />
           <Route path="/ooh" element={<LandingOOH />} />
+          <Route path="/dkjournal" element={<LandingDKJournal />} />
         </Routes>
       </BrowserRouter>
     </LanguageProvider>

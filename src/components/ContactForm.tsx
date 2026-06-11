@@ -74,7 +74,7 @@ export default function ContactForm({ defaultService = "general", serviceOptions
     return (
       <div className="card flex flex-col items-center gap-3 text-center">
         <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gold/15 text-3xl">✅</div>
-        <p className="text-base font-medium text-white">{c.success}</p>
+        <p className="font-medium text-white">{c.success}</p>
         <a href="mailto:business@goldensnow.ae" className="text-sm text-gold hover:underline">
           business@goldensnow.ae
         </a>

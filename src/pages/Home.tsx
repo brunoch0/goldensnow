@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ContactForm from "../components/ContactForm";
+import DKJournalPopup from "../components/DKJournalPopup";
 import { Reveal, StaggerGrid, staggerItem, CountUp } from "../components/motion";
 import { useLang } from "../lib/i18n";
 
@@ -51,7 +52,7 @@ const portfolio = [
 
 const directorClients = ["Samsung", "Monster Energy", "Ediya Coffee", "Bullsone", "Genius Education", "Ministry of Land & Transport (KR)"];
 
-const marqueeWords = ["Creative Production", "360° Digital Twin", "OOH Advertising", "Brand Films", "Drone Cinematography", "Dubai · Korea"];
+const marqueeWords = ["DK Journal Ads", "Creative Production", "360° Digital Twin", "OOH Advertising", "Brand Films", "Drone Cinematography", "Dubai · Korea"];
 
 export default function Home() {
   const { lang, t } = useLang();
@@ -59,6 +60,7 @@ export default function Home() {
   return (
     <div className="bg-base">
       <Navbar />
+      <DKJournalPopup />
 
       {/* ===== HERO ===== */}
       <section className="relative flex min-h-screen flex-col justify-center overflow-hidden">
@@ -120,8 +122,8 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1 }}
           >
-            <a href="#contact" className="btn-gold text-base">{t("프로젝트 시작하기", "Start a Project")}</a>
-            <a href="#work" className="btn-outline text-base !text-white">{t("작업물 보기", "See Our Work")}</a>
+            <a href="#contact" className="btn-gold">{t("프로젝트 시작하기", "Start a Project")}</a>
+            <a href="#work" className="btn-outline !text-white">{t("작업물 보기", "See Our Work")}</a>
           </motion.div>
         </div>
 
@@ -267,8 +269,53 @@ export default function Home() {
 
           <Reveal>
             <div className="mt-14 flex flex-wrap gap-4">
-              <Link to="/360" className="btn-gold">360° Digital Twin</Link>
+              <Link to="/dkjournal" className="btn-gold">{t("DK 저널 광고", "DK Journal Ads")}</Link>
+              <Link to="/360" className="btn-outline">360° Digital Twin</Link>
               <Link to="/ooh" className="btn-outline">{t("OOH 옥외광고", "OOH Advertising")}</Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ===== DK JOURNAL HIGHLIGHT ===== */}
+      <section id="dkjournal" className="section">
+        <div className="container-x">
+          <Reveal>
+            <div className="relative overflow-hidden rounded-3xl border border-gold/30 bg-gradient-to-br from-base to-base-soft p-8 sm:p-14">
+              {/* typographic backdrop */}
+              <span className="pointer-events-none absolute -right-6 -top-10 select-none text-[10rem] font-bold leading-none tracking-tighter text-white/[0.04] sm:text-[16rem]">
+                DK
+              </span>
+              <div className="relative">
+                <p className="eyebrow">{t("Golden Snow 미디어 파트너십", "A Golden Snow Media Partnership")}</p>
+                <h2 className="mt-4 text-4xl font-bold text-white sm:text-6xl">
+                  DK <span className="text-gold-grad glow">Journal</span>
+                </h2>
+                <p className="mt-4 max-w-2xl text-lg text-gray-300">
+                  {t(
+                    "Since 2008 · UAE 1위 한인신문. UAE 한인 커뮤니티에 닿는 가장 확실한 광고 — Golden Snow가 집행을 대행합니다.",
+                    "Since 2008 · UAE's No.1 Korean newspaper. The surest way to reach the UAE Korean community — ads managed by Golden Snow."
+                  )}
+                </p>
+                <div className="mt-8 grid gap-6 sm:grid-cols-3">
+                  <div className="rounded-2xl border border-gold/40 bg-base/60 p-5">
+                    <div className="text-2xl font-bold text-gold-grad"><CountUp value={5000} /></div>
+                    <div className="mt-1 text-sm text-gray-400">{t("주간 발행 부수", "Copies weekly")}</div>
+                  </div>
+                  <div className="rounded-2xl border border-base-line bg-base/60 p-5">
+                    <div className="text-2xl font-bold text-white">{t("6개 지역", "6 regions")}</div>
+                    <div className="mt-1 text-sm text-gray-400">{t("UAE 전역 배포", "Distributed across UAE")}</div>
+                  </div>
+                  <div className="rounded-2xl border border-base-line bg-base/60 p-5">
+                    <div className="text-2xl font-bold text-white">{t("지면 + 온라인", "Print + Online")}</div>
+                    <div className="mt-1 text-sm text-gray-400">{t("동시 노출", "Simultaneous exposure")}</div>
+                  </div>
+                </div>
+                <div className="mt-8 flex flex-wrap gap-4">
+                  <Link to="/dkjournal" className="btn-gold">{t("광고 상품 보기", "View ad products")}</Link>
+                  <a href="/dkjournal#contact" className="btn-outline">{t("광고 문의하기", "Inquire about ads")}</a>
+                </div>
+              </div>
             </div>
           </Reveal>
         </div>

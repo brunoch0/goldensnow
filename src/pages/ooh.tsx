@@ -120,8 +120,8 @@ export default function LandingOOH() {
             )}
           </motion.p>
           <motion.div className="mt-10 flex flex-wrap gap-4" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 1 }}>
-            <a href="#contact" className="btn-gold text-base">{t("상담하기", "Talk to us")}</a>
-            <a href="#gallery" className="btn-outline text-base">{t("미디어 갤러리", "Media Gallery")}</a>
+            <a href="#contact" className="btn-gold">{t("상담하기", "Talk to us")}</a>
+            <a href="#gallery" className="btn-outline">{t("미디어 갤러리", "Media Gallery")}</a>
           </motion.div>
         </div>
       </section>
@@ -165,7 +165,7 @@ export default function LandingOOH() {
                 {/* gold hover overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-gold-deep/85 via-base/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 <div className="absolute bottom-0 left-0 translate-y-3 p-5 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                  <span className="flex items-center gap-1.5 text-base font-semibold text-white"><Pin /> {L(g.name)}</span>
+                  <span className="flex items-center gap-1.5 font-semibold text-white"><Pin /> {L(g.name)}</span>
                   <span className="mt-1 block text-xs text-white/80">{t("클릭하여 확대", "Click to enlarge")}</span>
                 </div>
                 {/* watermark */}

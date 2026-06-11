@@ -14,7 +14,8 @@ export default function Navbar() {
     { label: t("포트폴리오", "Portfolio"), href: "/#portfolio" },
     { label: "Dubai 37", href: "/#dubai37" },
   ];
-  const landingLinks = [
+  const landingLinks: { label: string; to: string; highlight?: boolean }[] = [
+    { label: t("DK 저널 광고", "DK Journal"), to: "/dkjournal", highlight: true },
     { label: "360° Digital Twin", to: "/360" },
     { label: t("OOH 광고", "OOH"), to: "/ooh" },
   ];
@@ -71,8 +72,19 @@ export default function Navbar() {
             </a>
           ))}
           {landingLinks.map((l) => (
-            <Link key={l.to} to={l.to} className="text-sm text-gray-300 transition-colors hover:text-gold">
+            <Link
+              key={l.to}
+              to={l.to}
+              className={`text-sm transition-colors hover:text-gold ${
+                l.highlight ? "flex items-center gap-1.5 font-semibold text-gold" : "text-gray-300"
+              }`}
+            >
               {l.label}
+              {l.highlight && (
+                <span className="rounded-full bg-gold-gradient px-1.5 py-0.5 text-[9px] font-bold uppercase leading-none text-base">
+                  New
+                </span>
+              )}
             </Link>
           ))}
           <LangToggle />
@@ -100,8 +112,19 @@ export default function Navbar() {
               </a>
             ))}
             {landingLinks.map((l) => (
-              <Link key={l.to} to={l.to} className="py-1 text-gray-200 hover:text-gold">
+              <Link
+                key={l.to}
+                to={l.to}
+                className={`flex items-center gap-1.5 py-1 hover:text-gold ${
+                  l.highlight ? "font-semibold text-gold" : "text-gray-200"
+                }`}
+              >
                 {l.label}
+                {l.highlight && (
+                  <span className="rounded-full bg-gold-gradient px-1.5 py-0.5 text-[9px] font-bold uppercase leading-none text-base">
+                    New
+                  </span>
+                )}
               </Link>
             ))}
             <a href="/#contact" className="btn-gold mt-2 w-full">

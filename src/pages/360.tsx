@@ -97,8 +97,8 @@ export default function Landing360() {
           </motion.p>
           <p className="mt-2 text-sm text-gray-500">"See it. Explore it. Experience it."</p>
           <motion.div className="mt-10 flex flex-wrap gap-4" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 1 }}>
-            <a href="#contact" className="btn-gold text-base">{t("무료 상담 신청", "Request a free consult")}</a>
-            <Link to="/" className="btn-outline text-base !text-white">{t("회사 소개 보기", "About us")}</Link>
+            <a href="#contact" className="btn-gold">{t("무료 상담 신청", "Request a free consult")}</a>
+            <Link to="/" className="btn-outline !text-white">{t("회사 소개 보기", "About us")}</Link>
           </motion.div>
         </div>
       </section>
