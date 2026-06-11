@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<title>Golden Snow — 신문 지면 포스터 (300×190mm)</title>
+<style>
+  /* ===== Golden Snow design tokens (from golden-snow-design-system) ===== */
+  @font-face {
+    font-family: "Pretendard";
+    src: url("/assets/fonts/PretendardVariable.woff2") format("woff2-variations");
+    font-weight: 45 920;
+    font-style: normal;
+    font-display: swap;
+  }
+  :root {
+    --gs-base: #0D1117;
+    --gs-base-soft: #161B22;
+    --gs-base-line: #21262D;
+    --gs-gold: #F5C518;
+    --gs-gold-bright: #FFD700;
+    --gs-gold-deep: #B8860B;
+    --gs-text-strong: #FFFFFF;
+    --gs-text: #E5E7EB;
+    --gs-text-muted: #9CA3AF;
+    --gs-text-dim: #6B7280;
+    --gs-gradient-gold: linear-gradient(135deg, #B8860B 0%, #FFD700 100%);
+    --gs-gradient-glow: radial-gradient(circle at 50% 0%, rgba(245,197,24,0.15) 0%, rgba(13,17,23,0) 60%);
+    --gs-font-sans: "Pretendard", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+
+  html, body { margin: 0; background: #07090c; font-family: var(--gs-font-sans); }
+
+  /* ===== screen chrome ===== */
+  .chrome { max-width: 1280px; margin: 0 auto; padding: 40px 24px 80px; color: var(--gs-text); }
+  .chrome h1 { color: var(--gs-text-strong); font-size: 28px; margin: 0; letter-spacing: -0.02em; }
+  .chrome .sub { color: var(--gs-text-muted); font-size: 14px; margin-top: 6px; }
+  .variant { margin-top: 48px; }
+  .variant-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+  .variant-head h2 { color: var(--gs-gold); font-size: 15px; text-transform: uppercase; letter-spacing: 0.2em; margin: 0; font-weight: 600; }
+  .print-btn {
+    font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer;
+    color: var(--gs-base); background: var(--gs-gradient-gold);
+    border: none; border-radius: 9999px; padding: 9px 20px;
+  }
+  .print-btn:hover { filter: brightness(1.08); }
+  .frame { width: 100%; overflow: hidden; border: 1px solid var(--gs-base-line); border-radius: 8px; aspect-ratio: 1200 / 760; }
+  .scaler { width: 1200px; height: 760px; transform-origin: top left; }
+
+  /* ===== poster shared (1200×760 px = 300×190 mm @ 4px/mm) ===== */
+  .pz {
+    font-family: var(--gs-font-sans); color: var(--gs-text);
+    width: 1200px; height: 760px; box-sizing: border-box;
+    position: relative; overflow: hidden; background: var(--gs-base);
+  }
+  .pz .gold { background: var(--gs-gradient-gold); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .pz .glow { text-shadow: 0 0 28px rgba(245, 197, 24, 0.45); }
+  .pz .eyb { font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.22em; color: var(--gs-gold); margin: 0; }
+  .pz h1 { margin: 0; font-weight: 700; letter-spacing: -0.02em; color: var(--gs-text-strong); }
+  .contact { display: flex; align-items: center; gap: 18px; font-size: 16px; color: var(--gs-text-muted); letter-spacing: 0.01em; }
+  .contact .em { color: var(--gs-gold); }
+  .contact .dot { opacity: 0.4; }
+  .qrwrap { display: flex; align-items: center; gap: 14px; }
+  .qrbox { background: #fff; padding: 7px; border-radius: 8px; line-height: 0; }
+  .qrlabel { font-size: 13px; line-height: 1.4; color: var(--gs-text-muted); }
+  .qrlabel .t { color: var(--gs-gold); font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; font-size: 12px; }
+
+  /* ===== A · Cinematic ===== */
+  .pa-bg { position: absolute; inset: 0; background: url("/assets/visuals/goldensnow_keyvisual_alt1.jpg") center / cover; }
+  .pa-scrim-x { position: absolute; inset: 0; background: linear-gradient(90deg, var(--gs-base) 22%, color-mix(in srgb, var(--gs-base) 55%, transparent) 52%, transparent 78%); }
+  .pa-scrim-y { position: absolute; inset: 0; background: linear-gradient(0deg, var(--gs-base) 4%, transparent 34%); }
+  .pa-body { position: relative; height: 100%; box-sizing: border-box; padding: 52px 58px; display: flex; flex-direction: column; }
+  .pa-top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .pa-top .eyb { text-align: right; max-width: 320px; line-height: 1.5; }
+  .pa-main { margin-top: auto; }
+  .pa-main h1 { font-size: 78px; line-height: 0.98; max-width: 760px; }
+  .pa-main .lead { margin: 20px 0 0; font-size: 26px; color: var(--gs-text); max-width: 640px; line-height: 1.4; }
+  .pa-services { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 26px; max-width: 720px; }
+  .pa-services span.item { display: inline-flex; align-items: center; gap: 10px; font-size: 17px; color: var(--gs-text-strong); font-weight: 500; }
+  .pa-services .sep { color: var(--gs-gold); opacity: 0.7; }
+  .pa-foot { margin-top: 30px; padding-top: 22px; border-top: 1px solid var(--gs-base-line); display: flex; justify-content: space-between; align-items: center; }
+
+  /* ===== B · Editorial Split ===== */
+  .pb { display: grid; grid-template-columns: 1.32fr 1fr; }
+  .pb-left { box-sizing: border-box; padding: 46px 52px; display: flex; flex-direction: column; }
+  .pb-left .eyb { margin-top: 24px; }
+  .pb-left h1 { margin-top: 12px; font-size: 54px; line-height: 1.0; }
+  .pb-left .lead { margin: 14px 0 0; font-size: 19px; color: var(--gs-text-muted); line-height: 1.45; }
+  .pb-list { margin-top: 22px; }
+  .pb-row { display: flex; align-items: baseline; gap: 16px; padding: 8px 0; border-top: 1px solid var(--gs-base-line); }
+  .pb-row:first-child { border-top: none; }
+  .pb-row .no { font-size: 14px; font-weight: 700; width: 26px; font-variant-numeric: tabular-nums; }
+  .pb-row .en { font-size: 20px; font-weight: 600; color: var(--gs-text-strong); }
+  .pb-row .ko { font-size: 16px; color: var(--gs-text-dim); margin-left: auto; white-space: nowrap; flex-shrink: 0; padding-left: 12px; }
+  .pb-foot { margin-top: auto; padding-top: 20px; display: flex; justify-content: space-between; align-items: flex-end; }
+  .pb-foot .info { font-size: 15px; line-height: 1.7; color: var(--gs-text-muted); }
+  .pb-foot .info .em { color: var(--gs-gold); font-weight: 600; }
+  .pb-right { position: relative; overflow: hidden; }
+  .pb-img { position: absolute; inset: 0; background: url("/assets/visuals/goldensnow_basevisual1.jpg") center / cover; }
+  .pb-scrim-x { position: absolute; inset: 0; background: linear-gradient(90deg, var(--gs-base), transparent 26%); }
+  .pb-scrim-y { position: absolute; inset: 0; background: linear-gradient(0deg, color-mix(in srgb, var(--gs-base) 70%, transparent), transparent 50%); }
+  .pb-mark { position: absolute; right: 40px; top: 44px; width: 76px; opacity: 0.95; }
+  .pb-caption { position: absolute; left: 0; right: 0; bottom: 44px; padding: 0 44px; text-align: right; }
+  .pb-caption .eyb { font-size: 13px; }
+  .pb-caption .name { font-size: 34px; font-weight: 700; color: var(--gs-text-strong); margin-top: 6px; }
+
+  /* ===== C · Bold Typographic ===== */
+  .pc { display: flex; flex-direction: column; align-items: center; text-align: center; box-sizing: border-box; padding: 48px 58px; }
+  .pc-glow { position: absolute; inset: 0; background: var(--gs-gradient-glow); }
+  .pc-mark-tl { position: absolute; left: -90px; top: -90px; width: 320px; opacity: 0.06; }
+  .pc-mark-br { position: absolute; right: -70px; bottom: -80px; width: 260px; opacity: 0.06; }
+  .pc-body { position: relative; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; }
+  .pc-body .eyb { margin-top: 22px; }
+  .pc-body h1 { margin-top: 18px; font-size: 72px; line-height: 0.98; }
+  .pc-body .lead { margin: 18px 0 0; font-size: 23px; color: var(--gs-text-muted); }
+  .pc-services { display: flex; margin-top: 30px; border-top: 1px solid var(--gs-base-line); border-bottom: 1px solid var(--gs-base-line); }
+  .pc-cell { padding: 16px 22px; border-left: 1px solid var(--gs-base-line); }
+  .pc-cell:first-child { border-left: none; }
+  .pc-cell .en { font-size: 17px; font-weight: 600; color: var(--gs-text-strong); }
+  .pc-cell .ko { font-size: 14px; color: var(--gs-text-dim); margin-top: 4px; }
+  .pc-foot { margin-top: auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
+
+  /* ===== print: one poster per 300×190mm page ===== */
+  @page { size: 300mm 190mm; margin: 0; }
+  @media print {
+    html, body { background: #fff; }
+    .chrome { max-width: none; padding: 0; }
+    .chrome > h1, .chrome > .sub, .variant-head { display: none; }
+    .variant { margin: 0; page-break-after: always; }
+    .frame { border: none; border-radius: 0; aspect-ratio: auto; width: 300mm; height: 190mm; overflow: hidden; }
+    /* 1200px design → 300mm: 300mm = 1133.858px @96dpi → scale 0.944882 */
+    .scaler { transform: scale(0.944882) !important; }
+    body[data-print="a"] .variant:not(#va) { display: none; }
+    body[data-print="b"] .variant:not(#vb) { display: none; }
+    body[data-print="c"] .variant:not(#vc) { display: none; }
+    body[data-print] .variant { page-break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="chrome">
+  <h1>Golden Snow — 신문 지면 포스터</h1>
+  <p class="sub">DK Journal 1/2면 · 300 × 190 mm · 네이비 + 골드 · 시안 3종 — 각 시안의 "PDF 저장" 버튼 → 인쇄 대화상자에서 'PDF로 저장'</p>
+
+  <!-- ===== A · Cinematic ===== -->
+  <section class="variant" id="va">
+    <div class="variant-head">
+      <h2>A · Cinematic (image-led)</h2>
+      <button class="print-btn" onclick="printOne('a')">A 시안 PDF 저장</button>
+    </div>
+    <div class="frame"><div class="scaler">
+      <div class="pz">
+        <div class="pa-bg"></div>
+        <div class="pa-scrim-x"></div>
+        <div class="pa-scrim-y"></div>
+        <div class="pa-body">
+          <div class="pa-top">
+            <img src="/assets/poster/logo-wide-white.png" alt="Golden Snow" style="height:34px" />
+            <p class="eyb">Dubai · Korea<br/>Middle East Creative Production</p>
+          </div>
+          <div class="pa-main">
+            <h1>Shaping Dubai's<br/><span class="gold">Creative Future.</span></h1>
+            <p class="lead">살아있는 비주얼로 브랜드를 움직입니다.</p>
+            <div class="pa-services">
+              <span class="item">Brand Films</span>
+              <span class="item"><span class="sep">✦</span>Model Shoots</span>
+              <span class="item"><span class="sep">✦</span>OOH Advertising</span>
+              <span class="item"><span class="sep">✦</span>Community Advertising</span>
+              <span class="item"><span class="sep">✦</span>Marketing &amp; Promotion</span>
+            </div>
+          </div>
+          <div class="pa-foot">
+            <div class="contact">
+              <span class="em">Business@goldensnow.ae</span><span class="dot">·</span>
+              <span>goldensnow.ae</span><span class="dot">·</span>
+              <span>Dubai, UAE</span>
+            </div>
+            <div class="qrwrap">
+              <div class="qrbox"><img src="/assets/poster/qr-express.png" alt="QR" style="width:96px;height:96px;display:block" /></div>
+              <div class="qrlabel"><div class="t">Golden Snow Express</div><div style="margin-top:3px">Scan to connect<br/>제안서 · 포트폴리오</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- ===== B · Editorial Split ===== -->
+  <section class="variant" id="vb">
+    <div class="variant-head">
+      <h2>B · Editorial Split</h2>
+      <button class="print-btn" onclick="printOne('b')">B 시안 PDF 저장</button>
+    </div>
+    <div class="frame"><div class="scaler">
+      <div class="pz pb">
+        <div class="pb-left">
+          <img src="/assets/poster/logo-wide-white.png" alt="Golden Snow" style="height:30px;align-self:flex-start" />
+          <p class="eyb">What We Do</p>
+          <h1>Korean craft.<br/><span class="gold">Dubai ambition.</span></h1>
+          <p class="lead">한국 최고 수준의 영상미를 두바이로.<br/>광고 · 마케팅 · 프로덕션 토탈 솔루션.</p>
+          <div class="pb-list">
+            <div class="pb-row"><span class="no gold">01</span><span class="en">Brand Films</span><span class="ko">브랜드 필름</span></div>
+            <div class="pb-row"><span class="no gold">02</span><span class="en">Model Shoots</span><span class="ko">모델 촬영</span></div>
+            <div class="pb-row"><span class="no gold">03</span><span class="en">OOH Advertising</span><span class="ko">옥외 광고</span></div>
+            <div class="pb-row"><span class="no gold">04</span><span class="en">Community Advertising</span><span class="ko">커뮤니티 광고</span></div>
+            <div class="pb-row"><span class="no gold">05</span><span class="en">Marketing &amp; Promotion</span><span class="ko">마케팅 &amp; 프로모션</span></div>
+          </div>
+          <div class="pb-foot">
+            <div class="info">
+              <div class="em">Business@goldensnow.ae</div>
+              <div>goldensnow.ae · Dubai, UAE</div>
+            </div>
+            <div class="qrbox" style="padding:6px"><img src="/assets/poster/qr-express.png" alt="QR" style="width:84px;height:84px;display:block" /></div>
+          </div>
+        </div>
+        <div class="pb-right">
+          <div class="pb-img"></div>
+          <div class="pb-scrim-x"></div>
+          <div class="pb-scrim-y"></div>
+          <img class="pb-mark" src="/assets/poster/snowflake-gold.png" alt="" />
+          <div class="pb-caption">
+            <div class="eyb">A Golden Snow Project</div>
+            <div class="name">Dubai <span class="gold">37</span> Festival</div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- ===== C · Bold Typographic ===== -->
+  <section class="variant" id="vc">
+    <div class="variant-head">
+      <h2>C · Bold Typographic</h2>
+      <button class="print-btn" onclick="printOne('c')">C 시안 PDF 저장</button>
+    </div>
+    <div class="frame"><div class="scaler">
+      <div class="pz pc">
+        <div class="pc-glow"></div>
+        <img class="pc-mark-tl" src="/assets/poster/snowflake-gold.png" alt="" />
+        <img class="pc-mark-br" src="/assets/poster/snowflake-gold.png" alt="" />
+        <div class="pc-body">
+          <img src="/assets/poster/snowflake-gold.png" alt="" style="height:56px" />
+          <p class="eyb">Dubai · Korea · Middle East Creative Production</p>
+          <h1>We move brands with<br/><span class="gold glow">living visuals.</span></h1>
+          <p class="lead">두바이의 크리에이티브 미래를 만듭니다 — 광고 · 마케팅 · 프로덕션</p>
+          <div class="pc-services">
+            <div class="pc-cell"><div class="en">Brand Films</div><div class="ko">브랜드 필름</div></div>
+            <div class="pc-cell"><div class="en">Model Shoots</div><div class="ko">모델 촬영</div></div>
+            <div class="pc-cell"><div class="en">OOH Advertising</div><div class="ko">옥외 광고</div></div>
+            <div class="pc-cell"><div class="en">Community Advertising</div><div class="ko">커뮤니티 광고</div></div>
+            <div class="pc-cell"><div class="en">Marketing &amp; Promotion</div><div class="ko">마케팅 &amp; 프로모션</div></div>
+          </div>
+          <div class="pc-foot">
+            <img src="/assets/poster/logo-wide-gold.png" alt="Golden Snow" style="height:30px" />
+            <div class="contact">
+              <span class="em">Business@goldensnow.ae</span><span class="dot">·</span>
+              <span>goldensnow.ae</span><span class="dot">·</span>
+              <span>Dubai, UAE</span>
+            </div>
+            <div class="qrbox" style="padding:6px"><img src="/assets/poster/qr-express.png" alt="QR" style="width:78px;height:78px;display:block" /></div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </section>
+</div>
+
+<script>
+  // Scale 1200px-wide posters to fit their frames on screen
+  function fit() {
+    document.querySelectorAll(".frame").forEach(function (f) {
+      var s = f.querySelector(".scaler");
+      s.style.transform = "scale(" + f.clientWidth / 1200 + ")";
+    });
+  }
+  window.addEventListener("resize", fit);
+  fit();
+
+  function printOne(v) {
+    document.body.setAttribute("data-print", v);
+    window.print();
+    document.body.removeAttribute("data-print");
+    fit();
+  }
+</script>
+</body>
+</html>

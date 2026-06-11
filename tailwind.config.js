@@ -7,9 +7,11 @@ export default {
         base: "#0D1117",
         "base-soft": "#161B22",
         "base-line": "#21262D",
+        "base-elev": "#1C232C",
         gold: "#F5C518",
         "gold-deep": "#B8860B",
         "gold-bright": "#FFD700",
+        "gold-flat": "#FBC02D",
       },
       fontFamily: {
         sans: [
@@ -29,6 +31,8 @@ export default {
       },
       boxShadow: {
         gold: "0 0 40px rgba(245,197,24,0.25)",
+        "gold-strong": "0 0 45px rgba(245,197,24,0.75)",
+        card: "0 1px 0 rgba(255,255,255,0.02), 0 12px 32px rgba(0,0,0,0.35)",
       },
       keyframes: {
         "fade-up": {

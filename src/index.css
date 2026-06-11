@@ -28,7 +28,7 @@
     @apply inline-flex items-center justify-center rounded-full border border-gold/40 px-7 py-3 text-sm font-semibold text-gold transition-colors hover:bg-gold/10;
   }
   .card {
-    @apply rounded-2xl border border-base-line bg-base-soft/60 p-6 transition-colors hover:border-gold/40;
+    @apply rounded-2xl border border-base-line bg-base-soft/60 p-6 shadow-card transition-colors hover:border-gold/40;
   }
   .eyebrow {
     @apply text-xs font-semibold uppercase tracking-[0.25em] text-gold;
@@ -37,7 +37,7 @@
     @apply py-20 sm:py-28;
   }
   .input {
-    @apply w-full rounded-lg border border-base-line bg-base px-4 py-3 text-sm text-white placeholder:text-gray-500 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold/50;
+    @apply w-full rounded-lg border border-base-line bg-base px-4 py-3 text-sm text-white placeholder:text-gray-500 focus:border-gold focus:outline-none focus:ring-[3px] focus:ring-gold/[0.18];
   }
 }
 
